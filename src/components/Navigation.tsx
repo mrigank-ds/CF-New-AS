@@ -6,6 +6,12 @@ import { useComposedCssClasses, CompositionMethod } from '../hooks/useComposedCs
 import { useSearchActions, useSearchState } from '@yext/search-headless-react';
 import { universalResultsConfig } from '../config/universalResultsConfig';
 
+import * as React from 'react';
+
+
+
+
+
 interface NavigationCssClasses {
   nav?: string,
   linksWrapper?: string,
@@ -52,6 +58,56 @@ interface NavigationProps {
 }
 
 export default function Navigation({ customCssClasses, cssCompositionMethod }: NavigationProps) {
+
+  // Query - Starts
+
+let SearchQuery: any = useSearchState(state => state.query.input);
+// console.log(SearchQuery,"SearchQuery");
+// const queryString: any = window.location.search;
+// let urlParams: any = new URLSearchParams(queryString);
+
+   
+    
+// const product = urlParams.get('query');
+const answersActions = useSearchActions();
+
+
+// useEffect(() => {
+//   if (product != null) {
+//     answersActions.setQuery(product)
+//   }
+//   else {
+
+//     if (SearchQuery != '' && SearchQuery != null) {
+//       updateParam(SearchQuery)
+//     } else {
+//       updateParam('')
+//     }
+
+//   }
+// }, []);
+
+
+
+useEffect(() => {
+  if (SearchQuery != '' && SearchQuery != null) {
+    updateParam(SearchQuery)
+  } else {
+    updateParam('')
+  }
+}, [SearchQuery])
+
+
+function updateParam(latestUserInput: any) {
+  var paramValue = latestUserInput; // Replace with your updated value
+  var searchParams = new URLSearchParams(window.location.search);
+  searchParams.set('query', paramValue);
+  var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
+  console.log(newUrl,"newUrl");
+  window.history.replaceState({}, '', newUrl);
+}
+
+//Query - Ends
 
   // Default Search Code -  Starts
 
@@ -129,6 +185,7 @@ export default function Navigation({ customCssClasses, cssCompositionMethod }: N
 
   return (
     <nav className={cssClasses.nav} ref={navigationRef}>
+      
       {visibleLinks.map((l, index) => renderLink(l, index === activeVisibleLinkIndex, cssClasses))}
       {numOverflowLinks > 0 &&
         <div className={cssClasses.menuButtonContainer}>
@@ -164,6 +221,8 @@ function renderLink(
     [cssClasses.navLinkContainer___active ?? '']: isActiveLink
   });
   return (
+    <>
+    
     <div className={navLinkContainerClasses} key={to}>
       <a
         className={cssClasses.navLink}
@@ -172,5 +231,6 @@ function renderLink(
         {label}
       </a>
     </div>
+    </>
   )
 }

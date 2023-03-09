@@ -71,7 +71,7 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
   // console.log(result, "result");
 
   const Products: any = result.rawData;
-  console.log(Products, "Products");
+  // console.log(Products, "Products");
   
   let productName = Products.name; // Name of the products
   let productDescription = Products.description;  // Description of the Products

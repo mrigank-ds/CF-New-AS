@@ -82,7 +82,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   const CtaAddress = (addressLine1+','+AddressCity);
   const PhoneNumber = load.mainPhone;
   const LandingPage = load.landingPageUrl
-  console.log(CtaAddress, "Data");
+  // console.log(CtaAddress, "Data");
   const cssClasses = useComposedCssClasses(builtInCssClasses);
 
   const screenSize = 'sm';

@@ -15,7 +15,7 @@ export default function Header(data: props) {
     let headerLinks = data.headerLinks;
   
     let headerLabels = headerLinks ? headerLinks.map((res: any) => {
-        console.log(res.label,"headerLinks");
+        // console.log(res.label,"headerLinks");
         return (
             <>
                 <li className="hover:text-[#9c9090]">

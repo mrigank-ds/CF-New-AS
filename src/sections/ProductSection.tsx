@@ -73,7 +73,7 @@ function limit(string = ' ', limit = 0) {
         let LandingPageUrl = res.landingPageUrl ? res.landingPageUrl : '#';
         let ProductsDescriptionUniversal = limit(res.richTextDescription, 100);
         //    landingPageUrl
-        console.log(res, "res");
+        // console.log(res, "res");
         return (
             <>
                 <div>

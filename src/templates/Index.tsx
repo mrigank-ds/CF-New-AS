@@ -36,6 +36,8 @@ import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
 import usePageSetupEffect from "../hooks/usePageSetupEffect";
 import Header from "../components/commons/header";
 import Footer from "../components/commons/footer";
+import { useAnswersState, useAnswersActions } from "@yext/answers-headless-react";
+import updateParam from "../components/commons/GetQuery";
 
 
 export const config: TemplateConfig = {
@@ -127,7 +129,53 @@ const IndexPage: Template<TemplateRenderProps> = ({
 let headerProps = _site.c_header_links;
 //  console.log(_site);
 
+// // URL code - Starts
 
+// let SearchQuery: any = useAnswersState(state => state.query.input);
+//   // console.log(SearchQuery,"SearchQuery");
+//   const queryString: any = window.location.search;
+//   let urlParams: any = new URLSearchParams(queryString);
+  
+     
+      
+//   const product = urlParams.get('query');
+//   const answersActions = useAnswersActions();
+
+
+//   React.useEffect(() => {
+//     if (product != null) {
+//       answersActions.setQuery(product)
+//     }
+//     else {
+
+//       if (SearchQuery != '' && SearchQuery != null) {
+//         updateParam(SearchQuery)
+//       } else {
+//         updateParam('')
+//       }
+
+//     }
+//   }, []);
+
+
+
+//   React.useEffect(() => {
+//     if (SearchQuery != '' && SearchQuery != null) {
+//       updateParam(SearchQuery)
+//     } else {
+//       updateParam('')
+//     }
+//   }, [SearchQuery])
+
+
+//   function updateParam(latestUserInput: any) {
+//     var paramValue = latestUserInput; // Replace with your updated value
+//     var searchParams = new URLSearchParams(window.location.search);
+//     searchParams.set('query', paramValue);
+//     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
+//     window.history.replaceState({}, '', newUrl);
+//   }
+// // URL code - ends
 
 
 
@@ -138,6 +186,7 @@ let headerProps = _site.c_header_links;
      <div className="px-4 py-8">
         <div className="mx-auto flex max-w-5xl flex-col">
           <SearchBar placeholder='Search...' />
+          
           <Navigation />
           <SpellCheck />
           <DirectAnswer />
