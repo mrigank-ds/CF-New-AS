@@ -60,7 +60,7 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/articles";
+  return "/help_articles";
 };
 
 export const getHeadConfig: GetHeadConfig<
@@ -71,7 +71,7 @@ export const getHeadConfig: GetHeadConfig<
   document,
 }): HeadConfig => {
     return {
-      title: "Community Fibre",
+      title: `Community Fibre | AS`,
       charset: "UTF-8",
       viewport: "width=device-width, initial-scale=1",
     };

@@ -107,7 +107,7 @@ export const getHeadConfig: GetHeadConfig<
   document,
 }): HeadConfig => {
   return {
-    title: `Turtlehead Tacos Search`,
+    title: `Community Fibre | AS`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
@@ -124,19 +124,9 @@ const IndexPage: Template<TemplateRenderProps> = ({
  const {
   _site
  } = document
-//  let footerHelpMenu = _site.c_useful_links.headerLinksHeading;
-// let footerHElpSubMenus = _site.c_useful_links.links;
 let headerProps = _site.c_header_links;
- console.log(_site);
-  // const searchAction = useSearchActions();
-  // useEffect(() => {
-  //   searchAction.setQuery("");
-  //   alert("savdhan");
-  // }, [])
-  // usePageSetupEffect();
-  // const {
-  //   _site
-  // } = document;
+//  console.log(_site);
+
 
 
 

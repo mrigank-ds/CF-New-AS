@@ -55,7 +55,7 @@ export default function UniversalResults({
   const searchAction = useSearchActions();
   useEffect(() => {
     searchAction.executeUniversalQuery();
-    console.log("THis");
+    
   }, [])
 
   // UseEffect - Ends  - Code to get Default Initial Search 

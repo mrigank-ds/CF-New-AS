@@ -3,7 +3,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 // import { NavLink } from 'react-router-dom';
 import KebabIcon  from '../icons/kebab.svg';
 import { useComposedCssClasses, CompositionMethod } from '../hooks/useComposedCssClasses';
-import { useSearchState } from '@yext/search-headless-react';
+import { useSearchActions, useSearchState } from '@yext/search-headless-react';
 import { universalResultsConfig } from '../config/universalResultsConfig';
 
 interface NavigationCssClasses {
@@ -52,6 +52,15 @@ interface NavigationProps {
 }
 
 export default function Navigation({ customCssClasses, cssCompositionMethod }: NavigationProps) {
+
+  // Default Search Code -  Starts
+
+  const searchAction = useSearchActions();
+  useEffect(() => {
+    searchAction.executeVerticalQuery();  
+  }, [])
+
+  // Default Search Code - Ends
 
   let links = [
     {

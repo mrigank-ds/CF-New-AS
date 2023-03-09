@@ -32,29 +32,32 @@ import { ProductsCard } from '../components/cards/ProductsCard';
 import Navigation from '../components/Navigation';
 import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
+import Header from "../components/commons/header";
+import Footer from "../components/commons/footer";
 
-// export const config: TemplateConfig = {
-//   stream: {
-//     $id: "productPage",
-//     // Specifies the exact data that each generated document will contain. This data is passed in
-//     // directly as props to the default exported function.
-//     fields: [
-//       "id",
-//       "uid",
-//       "meta",
-//       "name",
-//     ],
-//     // Defines the scope of entities that qualify for this stream.
-//     filter: {
-//       entityIds: ["global-data"] 
-//     },
-//     // The entity language profiles that documents will be generated for.
-//     localization: {
-//       locales: ["en_GB"],
-//       primary: false,
-//     },
-//   },
-// };
+export const config: TemplateConfig = {
+  stream: {
+    $id: "helpArticle",
+    // Specifies the exact data that each generated document will contain. This data is passed in
+    // directly as props to the default exported function.
+    fields: [
+      "id",
+      "uid",
+      "meta",
+      "name",
+    ],
+    // Defines the scope of entities that qualify for this stream.
+    filter: {
+      entityIds: ["help-site-header-footer"] 
+    },
+    // The entity language profiles that documents will be generated for.
+    localization: {
+      locales: ["en_GB"],
+      primary: false,
+    },
+  },
+};
+
 
 export const getPath: GetPath<TemplateProps> = () => {
   return "/product";
@@ -68,7 +71,7 @@ export const getHeadConfig: GetHeadConfig<
   document,
 }): HeadConfig => {
   return {
-    title: `Turtlehead Tacos Search`,
+    title: `Community Fibre | AS`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
@@ -82,11 +85,15 @@ const ProductPage: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-
+  const {
+    _site
+  } = document;
+  let headerProps = _site.c_header_links;
   // const { _site  } = document;
 
   return (
-    // <PageLayout _site={_site}>
+    <>
+    <Header headerLinks={headerProps} />
     <SearchHeadlessProvider searcher={searcher}>
       <div className="px-4 py-8">
         <div className="mx-auto flex max-w-5xl flex-col">
@@ -102,7 +109,8 @@ const ProductPage: Template<TemplateRenderProps> = ({
         <Pagination />
       </div>
     </SearchHeadlessProvider>
-    // </PageLayout>
+    <Footer helpAndSupport={_site.c_useful_links} />
+    </>
   );
 };
 
