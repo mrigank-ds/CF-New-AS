@@ -1,0 +1,17 @@
+{
+  "$id": "site-entity",
+  "filter": {
+    "entityIds": ["help-site-header-footer"]
+  },
+  "source": "knowledgeGraph",
+  "fields": [
+    "id",
+    "uid",
+    "meta",
+    "c_header_links",
+    "c_useful_links"
+  ],
+  "localization": {
+    "locales": ["en_GB"]
+  }
+}

@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.centered-container {
+  @apply mx-auto px-5 md:px-14 max-w-screen-xl;
+}
+
+.section {
+  @apply mt-8 mb-16;
+}
+
+.primary-cta {
+  @apply bg-sky-500 hover:bg-sky-600;
+}
+
+.secondary-cta {
+  @apply bg-sky-700 hover:bg-sky-800;
+}
+
+/* FAQ CSS - Starts*/
+.faq-sec{
+  @apply py-5 lg:py-[60px]
+}
+.faq-sec .container{
+  @apply max-w-[1240px]
+}
+.faq-blocks{
+  @apply px-4 lg:px-[50px] py-2 lg:py-[60px] flex flex-wrap items-start max-w-[1200px] mx-auto shadow-[3.5px_6.06px_10px_rgba(1,1,1,0.18)] lg:shadow-[3.5px_6.06px_21px_rgba(1,1,1,0.18)] rounded-[5px] lg:rounded-[30px] justify-between mt-6 lg:mt-11
+}
+.faq-blocks .left-faq{
+  @apply w-full lg:w-[calc(50%_-_30px)]
+}
+.faq-blocks .right-faq{
+  @apply w-full lg:w-[calc(50%_-_30px)]
+}
+.faq-blocks .faq-block{
+  @apply w-full border-b  border-opacity-10;
+}
+.faq-blocks .faq-block:last-child{
+  @apply border-b-0
+}
+.faq-blocks .left-faq .faq-block:last-child{
+  @apply border-b lg:border-b-0
+}
+
+.faq-blocks .faq-block h4{
+  @apply text-base lg:text-xl  mt-0  font-medium lg:font-semibold py-4 pr-10 relative leading-6 lg:leading-7 cursor-pointer select-none
+}
+.faq-blocks .faq-block h4 .faq-icon{
+  @apply absolute top-4 right-0 border lg:border-2  w-5 lg:w-7 h-5 lg:h-7 rounded-full z-10;
+}
+.faq-blocks .faq-block h4 .faq-icon:before{
+  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 lg:w-3 h-[1px] lg:h-0.5 
+}
+.faq-blocks .faq-block h4 .faq-icon:after{
+  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 lg:h-3 w-[1px] lg:w-0.5 
+}
+.faq-blocks .faq-block.opened h4 .faq-icon:after{
+  @apply opacity-0
+}
+
+
+.faq-blocks .faq-block .faq-content{
+  @apply max-h-0 overflow-hidden;
+}
+.faq-blocks .faq-block.opened .faq-content{
+  @apply pb-5 max-h-96;
+}
+
+/* FAQ CSS  - Ends */
+
+/* Header - Start */
+
+
+
+/* Header - Ends */
+
+/* Footer Css - Starts */
+
+/* Footer Css - Ends  */
