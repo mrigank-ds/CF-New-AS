@@ -60,7 +60,7 @@ interface NavigationProps {
 export default function Navigation({ customCssClasses, cssCompositionMethod }: NavigationProps) {
 
   // Query - Starts
-
+const[navparmam,setNavParam]=useState('');
 let SearchQuery: any = useSearchState(state => state.query.input);
 // console.log(SearchQuery,"SearchQuery");
 // const queryString: any = window.location.search;
@@ -78,6 +78,7 @@ const answersActions = useSearchActions();
 
 
 useEffect(() => {
+  console.log(getQueryParam(),"product")
   if (getQueryParam() != null) {
     answersActions.setQuery(getQueryParam())
   }
@@ -85,8 +86,10 @@ useEffect(() => {
 
     if (SearchQuery != '' && SearchQuery != null) {
       updateParam(SearchQuery)
+      setNavParam(SearchQuery)
     } else {
       updateParam('')
+      setNavParam('')
     }
 
   }
@@ -97,8 +100,10 @@ useEffect(() => {
 useEffect(() => {
   if (SearchQuery != '' && SearchQuery != null) {
     updateParam(SearchQuery)
+    setNavParam(SearchQuery)
   } else {
     updateParam('')
+    setNavParam('')
   }
 }, [SearchQuery])
 
@@ -191,7 +196,7 @@ function updateParam(latestUserInput: any) {
   return (
     <nav className={cssClasses.nav} ref={navigationRef}>
       
-      {visibleLinks.map((l, index) => renderLink(l, index === activeVisibleLinkIndex, cssClasses))}
+      {visibleLinks.map((l, index) => renderLink(l, index === activeVisibleLinkIndex, cssClasses,navparmam))}
       {numOverflowLinks > 0 &&
         <div className={cssClasses.menuButtonContainer}>
           <button
@@ -207,7 +212,7 @@ function updateParam(latestUserInput: any) {
                 navLink: cssClasses.menuNavLink,
                 navLinkContainer: cssClasses.menuNavLinkContainer,
                 navLinkContainer___active: cssClasses.menuNavLinkContainer___active
-              }))}
+              },navparmam))}
             </div>
           }
         </div>
@@ -219,7 +224,8 @@ function updateParam(latestUserInput: any) {
 function renderLink(
   linkData: LinkData,
   isActiveLink: boolean,
-  cssClasses: { navLinkContainer?: string, navLinkContainer___active?: string, navLink?: string }) 
+  cssClasses: { navLinkContainer?: string, navLinkContainer___active?: string, navLink?: string },
+  navparmam:any)
 {
   const { to, label } = linkData;
   const navLinkContainerClasses = classNames(cssClasses.navLinkContainer, {
@@ -231,7 +237,7 @@ function renderLink(
     <div className={navLinkContainerClasses} key={to}>
       <a
         className={cssClasses.navLink}
-        href={`${to}`}
+        href={`${to}?query=${navparmam}`}
       >
         {label}
       </a>
