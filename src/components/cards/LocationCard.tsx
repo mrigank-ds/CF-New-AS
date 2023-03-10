@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { LocationContext } from '../LocationContext';
 import { LocationActionTypes } from '../locationReducers';
 import { providePagesAnalytics, CtaClick, provideConversionTrackingAnalytics, provideSearchAnalytics } from '@yext/analytics';
+import * as React from 'react';
 
 
 //prettier-ignore
@@ -166,12 +167,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
           <div className="sm:text-body align-middle font-heading  font-medium sm:text-base">Get Direction</div>
         </div>
       </a>
-      {/* <a target="_blank" href={LandingPage} onClick={() => pagesAnalyticsCtaClick()}>
-        <div className={cssClasses.ctaButton}>
-          <div className="sm:text-body align-middle font-heading  font-medium sm:text-base">View Restaurants</div>
-        </div>
-      </a> */}
-
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import '../sass/ScreenReader.scss';
+import * as React from 'react';
+// import '../sass/ScreenReader.scss';
 
 interface Props {
   instructionsId: string,

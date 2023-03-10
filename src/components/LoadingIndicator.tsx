@@ -1,4 +1,4 @@
-import '../sass/LoadingIndicator.scss';
+// import '../sass/LoadingIndicator.scss';
 
 export default function LoadingIndicator() {
   return (

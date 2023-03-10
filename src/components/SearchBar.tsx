@@ -1,7 +1,7 @@
 import { SearchTypeEnum, useSearchActions, useSearchState } from '@yext/search-headless-react';
 import InputDropdown, { InputDropdownCssClasses } from './InputDropdown';
 import { ReactComponent as YextLogoIcon } from '../icons/yext_logo.svg';
-import '../sass/Autocomplete.scss';
+// import '../sass/Autocomplete.scss';
 import DropdownSection, { DropdownSectionCssClasses, Option } from './DropdownSection';
 import { processTranslation } from './utils/processTranslation';
 import SearchButton from './SearchButton';
@@ -13,6 +13,7 @@ import renderAutocompleteResult, {
   builtInCssClasses as AutocompleteResultBuiltInCssClasses
 } from './utils/renderAutocompleteResult';
 import { ReactComponent as MagnifyingGlassIcon } from '../icons/magnifying_glass.svg';
+import * as React from 'react';
 
 const SCREENREADER_INSTRUCTIONS = 'When autocomplete results are available, use up and down arrows to review and enter to select.'
 

@@ -1,18 +1,9 @@
-import { useRef, useEffect, useState, useContext } from 'react';
-import { ReactComponent as PinIcon } from '../../icons/pin.svg';
-import mapboxgl, { LngLat, Map } from 'mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax   
+import { useState, useContext } from 'react';
+import mapboxgl, {  } from 'mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax   
 // import 'mapbox-gl/dist/mapbox-gl.css';
-import ReactDOM from 'react-dom';
 import { LocationContext } from '../LocationContext';
 import { LocationData } from '../cards/LocationCard';
-import { LocationActionTypes } from '../locationReducers';
-import { LngLatBounds } from 'mapbox-gl'; 
-import { distanceInKmBetweenCoordinates } from './mapUtils';
-import { Matcher, useSearchActions, useSearchState } from '@yext/search-headless-react';
-import { renderSelectedLocation } from './renderSelectedLocation';
-import { renderSearchAreaButton } from './renderSearchAreaButton';
-import Address from "../Address";
-import Hours from "../hours";
+import { useSearchActions, useSearchState } from '@yext/search-headless-react';
 
 import { 
   GoogleMap,
@@ -21,6 +12,7 @@ import {
   MarkerClusterer,
   InfoWindow
   } from "@react-google-maps/api";
+import * as React from 'react';
 
 // prettier-ignore
 export interface MapGoogleLocationData extends LocationData {

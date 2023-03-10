@@ -69,20 +69,23 @@ function limit(string = ' ', limit = 0) {
     return string.substring(0, limit)
   }
     ProductResultsObj = ProductResultsObj.map((res: any) => {
-        let ProductImage = res.photoGallery ? res.photoGallery[0].image.url : null;
-        let LandingPageUrl = res.landingPageUrl ? res.landingPageUrl : '#';
-        let ProductsDescriptionUniversal = limit(res.richTextDescription, 100);
+        console.log(res,"Rawdata");
+         let productName = res.name;
+         let productLandingPageUrl = res.landingPageUrl;
+         let productDescription = res.description;
+         let productSpeed = res.c_speed;
+         let productPrice = res.c_product_price;
         //    landingPageUrl
         // console.log(res, "res");
         return (
             <>
                 <div>
-                    <img className='ProductsImage' src={ProductImage}></img>
-                    <h1 className={builtInCssClasses.title}>{res.name}</h1>
-                    <p>{res.sku}</p>
-                    <p>Price : £ {res.c_price}</p>
-                    <p>{ProductsDescriptionUniversal}</p>
-                    <a target="_blank" href={LandingPageUrl}>
+                    {/* <img className='ProductsImage' src={ProductImage}></img> */}
+                    <h1 className={builtInCssClasses.title}>{productName}</h1>
+                    <p>{productSpeed}</p>
+                    <p>Price : £ {productPrice}</p>
+                    <p>{productDescription}</p>
+                    <a target="_blank" href={productLandingPageUrl}>
                         <div className={cssClasses.ctaButton}>
                             <div className="sm:text-body align-middle font-heading  font-medium sm:text-base">View Product</div>
                         </div>

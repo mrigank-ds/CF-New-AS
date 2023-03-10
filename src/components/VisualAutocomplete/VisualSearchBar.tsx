@@ -1,7 +1,7 @@
 import { useSearchActions, useSearchState, VerticalResults, AutocompleteResult } from '@yext/search-headless-react';
 import { PropsWithChildren, useEffect } from 'react';
 import InputDropdown from '../InputDropdown';
-import '../../sass/Autocomplete.scss';
+// import '../../sass/Autocomplete.scss'; 
 import DropdownSection, { Option } from '../DropdownSection';
 import { useEntityPreviews } from '../../hooks/useEntityPreviews';
 import SearchButton from '../SearchButton';
@@ -15,8 +15,9 @@ import { ReactComponent as YextLogoIcon } from '../../icons/yext_logo.svg';
 import renderAutocompleteResult from '../utils/renderAutocompleteResult';
 import { ReactComponent as RecentSearchIcon } from '../../icons/history.svg';
 import useRecentSearches from '../../hooks/useRecentSearches';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import { ReactComponent as MagnifyingGlassIcon } from '../../icons/magnifying_glass.svg';
+import * as React from 'react';
 
 const SCREENREADER_INSTRUCTIONS = 'When autocomplete results are available, use up and down arrows to review and enter to select.'
 const builtInCssClasses: VisualSearchBarCssClasses = { 
@@ -76,7 +77,7 @@ export default function VisualSearchBar({
 }: PropsWithChildren<Props>) {
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
 
-  const browserHistory = useHistory();
+  // const browserHistory = useHistory();
   const answersActions = useSearchActions();
   const query = useSearchState(state => state.query.input) ?? '';
   const isLoading = useSearchState(state => state.searchStatus.isLoading) ?? false;
@@ -148,7 +149,7 @@ export default function VisualSearchBar({
             autocompletePromiseRef.current = undefined;
             answersActions.setQuery(result.value);
             executeQuery();
-            browserHistory.push(`/${link.verticalKey}`);
+            // browserHistory.push(`/${link.verticalKey}`);
           },
           display: renderAutocompleteResult({ value: `in ${link.label}` }, { ...cssClasses, option: cssClasses.verticalLink })
         })
