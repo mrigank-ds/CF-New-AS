@@ -66,26 +66,31 @@ let SearchQuery: any = useSearchState(state => state.query.input);
 // const queryString: any = window.location.search;
 // let urlParams: any = new URLSearchParams(queryString);
 
-   
+function getQueryParam(){
+  const queryString: any = window.location.search;
+  let urlParams: any = new URLSearchParams(queryString);
+  const product = urlParams.get('query');
+  return product;
+}    
     
 // const product = urlParams.get('query');
 const answersActions = useSearchActions();
 
 
-// useEffect(() => {
-//   if (product != null) {
-//     answersActions.setQuery(product)
-//   }
-//   else {
+useEffect(() => {
+  if (getQueryParam() != null) {
+    answersActions.setQuery(getQueryParam())
+  }
+  else {
 
-//     if (SearchQuery != '' && SearchQuery != null) {
-//       updateParam(SearchQuery)
-//     } else {
-//       updateParam('')
-//     }
+    if (SearchQuery != '' && SearchQuery != null) {
+      updateParam(SearchQuery)
+    } else {
+      updateParam('')
+    }
 
-//   }
-// }, []);
+  }
+}, []);
 
 
 
