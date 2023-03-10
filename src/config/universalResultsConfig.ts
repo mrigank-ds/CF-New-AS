@@ -7,6 +7,7 @@ import { VerticalConfig } from '../components/UniversalResults';
 import { LocationCard } from '../components/cards/LocationCard';
 import LocationSection from '../sections/LocationSection';
 import ProductsSection from '../sections/ProductSection';
+import { ProviderSwitchingCard } from '../components/cards/ProviderSwitchingCard';
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
 
@@ -49,7 +50,7 @@ export const universalResultsConfig: UniversalResultsConfig = {
     label: 'Provider Switching',
     viewAllButton: true,
     cardConfig: {
-      CardComponent: VideosCard,
+      CardComponent: ProviderSwitchingCard,
       showOrdinal: false
     }
   }
